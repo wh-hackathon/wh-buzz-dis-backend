@@ -1,2 +1,2 @@
-# wh-buzz-dis-backend
-wh-buzz-dis-backend
+# bizz-dis-api
+API Server for bizz-dis

@@ -1,0 +1,14 @@
+﻿extends layout
+
+block content
+  h1= title
+     script(type='text/javascript').
+      window.opener.document.getElementById('retid').value="xyx";
+      console.log("test");
+      window.close();
+      
+    
+
+
+  
+    
