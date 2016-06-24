@@ -84,6 +84,24 @@ var apitags = {
         this.getAllTagbyLocation(latitude, longitude, distance, res);
     },
 
+    //Update Likes
+    updateLikes: function (id, res){
+        var tags = mongoose.model("tags");
+        var incLikes = "info.likes";        
+        var action = {};
+        action[incLikes] = 1;
+        tags.findOneAndUpdate(
+            {_id:id},
+            {$inc: action},
+            function (err, tag) {
+            if (err) {
+                console.error(err)
+                res.status(500).send({ "error": err });
+            } else 
+                res.send( { "result": "Tag Updated" });
+        });
+    },
+
     //Get All tag by location
     getAllTagWithin: function (bounds, res) {
         var tags = mongoose.model("tags");

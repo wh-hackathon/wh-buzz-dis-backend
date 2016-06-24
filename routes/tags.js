@@ -13,6 +13,18 @@ router.post('/get-all-by-location-open', function (req, res) {
     apitags.getAllTagbyLocationOpen(req.body.latitude, req.body.longitude, req.body.distance, res);
 });
 
+router.post('/update-likes', function (req, res) {
+    apitags.updateLikes(req.body.id, res);
+});
+
+router.get("/tag/:id", function (req, res) {
+    apitags.getTagbyId(req.params.id, res);
+});
+
+// router.get("/tag/:id", apiauth.protectRoute, function (req, res) {
+//     apitags.getTagbyId(req.params.id, res);
+// });
+
 router.post('/get-all-by-location', apiauth.protectRoute, function (req, res) {
     apitags.getAllTagbyLocation(req.body.latitude, req.body.longitude, req.body.distance, res);
 });
@@ -34,10 +46,6 @@ router.post('/update', apiauth.protectRoute, function (req, res) {
 router.post('/delete', apiauth.protectAdminRoute, function (req, res) {
     var userid = req.tokenInfo.id;
     apitags.updateTag(req.body.id, userid, res);
-});
-
-router.get("/tag/:id", apiauth.protectRoute, function (req, res) {
-    apitags.getTagbyId(req.params.id, res);
 });
 
 module.exports = router;
