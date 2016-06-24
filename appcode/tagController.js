@@ -71,7 +71,8 @@ var apitags = {
         var coords = [];
         coords[0] = longitude;
         coords[1] = latitude;
-        tags.find({ location: { $geoNear: { type: 'Point', coordinates:coords }, $maxDistance: distance * 1609.34}}, function (err, tags) {
+        // $maxDistance: distance * 1609.34
+        tags.find({ location: { $geoNear: { type: 'Point', coordinates:coords }, $maxDistance: distance * 1000}}, function (err, tags) {
             if (err) {
                 console.error(err)
                 res.status(500).send({ "error": err });
