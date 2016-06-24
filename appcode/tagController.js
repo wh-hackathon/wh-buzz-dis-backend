@@ -80,6 +80,10 @@ var apitags = {
         })
     },
 
+    getAllTagbyLocationOpen: function (latitude, longitude, distance, res){
+        this.getAllTagbyLocation(latitude, longitude, distance, res);
+    },
+
     //Get All tag by location
     getAllTagWithin: function (bounds, res) {
         var tags = mongoose.model("tags");

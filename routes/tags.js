@@ -9,6 +9,10 @@ router.get('/', function (req, res) {
     apitags.getAllTag(res);
 });
 
+router.post('/get-all-by-location-open', function (req, res) {
+    apitags.getAllTagbyLocationOpen(req.body.latitude, req.body.longitude, req.body.distance, res);
+});
+
 router.post('/get-all-by-location', apiauth.protectRoute, function (req, res) {
     apitags.getAllTagbyLocation(req.body.latitude, req.body.longitude, req.body.distance, res);
 });
